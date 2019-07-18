@@ -17,8 +17,6 @@ class PostsController extends Controller
             'image' => ['required ', 'image'], // ajout de 'image' pour valider une image
         ]);
 
-        \App\Post::create($data);
-        
         dd(request()->all());
         // return view('posts.create');
     }

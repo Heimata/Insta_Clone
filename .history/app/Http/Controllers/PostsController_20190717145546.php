@@ -14,11 +14,8 @@ class PostsController extends Controller
 
         $data = request()->validate([
             'caption' => 'required',
-            'image' => ['required ', 'image'], // ajout de 'image' pour valider une image
+            'image' => 'required',
         ]);
-
-        \App\Post::create($data);
-        
         dd(request()->all());
         // return view('posts.create');
     }

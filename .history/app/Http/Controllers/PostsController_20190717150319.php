@@ -18,7 +18,6 @@ class PostsController extends Controller
         ]);
 
         \App\Post::create($data);
-        
         dd(request()->all());
         // return view('posts.create');
     }
