@@ -7,7 +7,7 @@
             <img src="/svg/react.svg" alt="" style="max-height: 150px; background-color: grey;" class="rounded-circle"/>
         </div>
         <div class="col-9 p-5"> <!-- Logo -->
-            <div class="d-flex justify-content-between align-items-baseline">
+            <div class="d-felx">
                 <h1>{{ $user->username }}</h1>
                 <a href="#">Add New Post</a>
             </div>
