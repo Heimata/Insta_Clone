@@ -25,14 +25,10 @@ class PostsController extends Controller
         $imagePath = request('image')->store('uploads', 'public');
 
         // \App\Post::create($data); // On remplace cette ligne par celle d'en dessous
-        auth()->user()->posts()->create([
-            'caption' => $data['caption'],
-            'image' => $imagePath,
-        ]);
+        auth()->user()->posts()->create($data);
 
-        return redirect('/profile/' .auth()->user()->id);
 
-        // dd(request()->all());
+        dd(request()->all());
         // return view('posts.create');
     }
 }
