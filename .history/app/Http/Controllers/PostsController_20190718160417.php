@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('auth');
+    // }
 
-    public function __construct(){
-        $this->middleware('auth');
-    }
-    
     public function create(){
         return view('posts.create');
     }
@@ -22,9 +21,7 @@ class PostsController extends Controller
             'image' => ['required ', 'image'], // ajout de 'image' pour valider une image
         ]);
 
-        // \App\Post::create($data); // On remplace cette ligne par celle d'en dessous
-        auth()->user()->posts()->create($data);
-
+        auth()->user()->posts()->create($data); //
 
         dd(request()->all());
         // return view('posts.create');
