@@ -29,7 +29,6 @@ class ProfilesController extends Controller
 
     public function update(User $user)
     {
-        // Les champs seront requis
         $data = request()->validate([
             'title' => 'required',
             'description' => 'required',
