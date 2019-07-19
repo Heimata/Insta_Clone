@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\User;
 
 class ProfilesController extends Controller
@@ -27,18 +26,16 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user'));
     }
 
-    public function update(User $user)
+    public function update()
     {
-        $data = request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'url' => 'url',
+        $data = $request()->validate([
+            'title' => '',
+            'description' => '',
+            'url' => '',
             'image' => '',
         ]);
 
-        auth()->user()->profile->update($data);
-
-        return redirect("/profile/{$user->id}");
+        dd($data);
     }
 
 }

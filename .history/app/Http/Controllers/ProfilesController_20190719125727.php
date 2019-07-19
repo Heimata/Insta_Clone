@@ -27,16 +27,24 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user'));
     }
 
-    public function update(User $user)
+    public function update(Reuqest $request, User $user)
     {
-        $data = request()->validate([
+        // $data = request()->validate([
+        //     'title' => 'required',
+        //     'description' => 'required',
+        //     'url' => 'url',
+        //     'image' => '',
+        // ]);
+
+        $data = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
             'url' => 'url',
             'image' => '',
         ]);
 
-        auth()->user()->profile->update($data);
+        dd($data);
+        $user->profile->update($data);
 
         return redirect("/profile/{$user->id}");
     }

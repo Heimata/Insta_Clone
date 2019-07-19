@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\User;
 
 class ProfilesController extends Controller
@@ -36,7 +35,7 @@ class ProfilesController extends Controller
             'image' => '',
         ]);
 
-        auth()->user()->profile->update($data);
+        $user->profile->update($data);
 
         return redirect("/profile/{$user->id}");
     }
