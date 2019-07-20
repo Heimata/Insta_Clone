@@ -55,7 +55,7 @@ class ProfilesController extends Controller
 
         auth()->user()->profile->update(array_merge(
             $data,
-            $imageArray ?? []
+            $imageArray ?? [];
         )); // Limitera l'accès au visiteur
 
         return redirect("/profile/{$user->id}");

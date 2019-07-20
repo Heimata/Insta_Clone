@@ -4,26 +4,21 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5"> <!-- Logo -->
-            <img src="{{ $user->profile->profileImage() }}" alt="" class="rounded-circle w-100"/>
+            <img src="/svg/react.svg" alt="" style="max-height: 150px; background-color: grey;" class="rounded-circle"/>
         </div>
         <div class="col-9 p-5">
             <div class="d-flex justify-content-between align-items-baseline">
-
-                <div class="d-flex align-items-center pb-3">
-                    <div class="h4">{{ $user->username }}</div>
-                    <button class="btn btn-primary ml-4">Follow</button>
-                </div>
+                <h1>{{ $user->username }}</h1>
 
                 @can('update', $user->profile) <!-- Seul la personne connectée peut le voir -->
                     <a href="/p/create">Add New Post</a>
                 @endcan
 
+                @can('update', $user->profile) <!-- Seul la personne connectée peut le voir -->
+                    <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                @endcan
+
             </div>
-
-            @can('update', $user->profile) <!-- Seul la personne connectée peut le voir -->
-                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
-            @endcan
-
             <div class="d-flex">
                 <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="pr-5"><strong>35</strong> follwers</div>

@@ -49,13 +49,13 @@ class ProfilesController extends Controller
             
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
             $image->save();
-
-            $imageArray = ['image' => $imagePath];
         }
 
+        dd($data);
+        
         auth()->user()->profile->update(array_merge(
             $data,
-            $imageArray ?? []
+            ['image' => $imagePath]
         )); // Limitera l'accès au visiteur
 
         return redirect("/profile/{$user->id}");

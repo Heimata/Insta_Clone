@@ -9,7 +9,7 @@
         <div class="col-9 p-5">
             <div class="d-flex justify-content-between align-items-baseline">
 
-                <div class="d-flex align-items-center pb-3">
+                <div class="d-flex align-items-center">
                     <div class="h4">{{ $user->username }}</div>
                     <button class="btn btn-primary ml-4">Follow</button>
                 </div>
